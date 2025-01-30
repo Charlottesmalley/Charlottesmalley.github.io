@@ -38,3 +38,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.top-right-header {
+    text-align: center;
+    margin: 20px 0;
+}
