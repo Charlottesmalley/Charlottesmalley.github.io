@@ -3,3 +3,13 @@ html, body {
   padding: 0;
   overflow: hidden;
 }
+.credit {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 20px;
+  color: #777;
+  padding: 10px 0;
+}
+.credit strong {
+  font-weight: bold;
+}
