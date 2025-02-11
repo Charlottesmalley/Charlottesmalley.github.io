@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    background: #ccc;
+  }
+  
+  article {
+    width: 210mm;
+    height: 297mm;
+    margin: 20px auto;
+    position: relative;
+  }
+  
+  address {
+    position: absolute;
+    bottom: 8mm;
+    right: 20mm;
+  }
+
+  
+  
+  /* Your CSS below here */
+
+h1 {
+  position: absolute;
+  top: 12mm;
+  left: 20mm;
+  width: 128px;
+  height: 128px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 44px 0;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  background: url('logo.png') no-repeat center center;
+  background-size: contain;
+  text-indent: -9999px; /* ✅ Hide text */
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3));
+}
+
+
+.letter {
+  background: 
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.3)), 
+      url('top-image.png') no-repeat top center,  
+      url('bottom-image.png') no-repeat bottom center; 
+  background-size: auto, contain, contain; 
+  background-color: white; 
+  border-top: 1mm solid #333; 
+  border-bottom: 1mm solid #333;
+  padding: 20px;
+}
+
+
+.logo {
+  background: url(../ica5/logo.png) no-repeat center center;
+  background-size: contain;
+  width: 200px; 
+  height: 100px; 
+  display: flex; 
+  justify-content: center;  
+  align-items: center;  
+  flex-direction: column; 
+  
+  font-size: 18px; 
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px black; 
+  text-align: center;
+}
+
