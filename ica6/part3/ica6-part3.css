@@ -1,0 +1,42 @@
+#narrowScreen {
+    background-color: green;
+}
+
+#wideScreen {
+    background-color: red;
+}
+
+#shortScreen {
+    background-color: turquoise;
+}
+
+#tallScreen {
+    background-color: lavender;
+}
+/* When the screen is narrower than 600px */
+@media screen and (max-width: 600px) {
+    #narrowScreen {
+        background-color: purple;
+    }
+}
+
+/* When the screen is wider than 800px */
+@media screen and (min-width: 800px) {
+    #wideScreen {
+        background-color: lightblue;
+    }
+}
+
+/* When the screen is shorter than 500px */
+@media screen and (max-height: 500px) {
+    #shortScreen {
+        background-color: yellow;
+    }
+}
+
+/* When the screen is taller than 800px */
+@media screen and (min-height: 600px) {
+    #tallScreen {
+        background-color: orange;
+    }
+}
