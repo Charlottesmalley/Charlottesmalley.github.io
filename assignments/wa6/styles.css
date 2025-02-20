@@ -1,0 +1,129 @@
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Logo styling */
+.logo {
+  font-size: 200%;
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+/* Main grid layout */
+.grid {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 980px;
+}
+
+/* Navigation Bar Styling */
+nav {
+  background-color: #000;
+  padding: .5em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: .5em 1em;
+}
+
+/* Article and Aside Layout */
+article {
+  flex: 1;
+  padding-right: 20px;
+}
+
+aside {
+  flex: 0 0 300px;
+}
+
+/* Image inside Article */
+.feature {
+  float: left;
+  margin-right: 20px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+/* Photos Grid */
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.photos li {
+  list-style: none;
+}
+
+.photos img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 500px) {
+  /* Stack layout vertically for screens smaller than 500px */
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .photos {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    float: none;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  aside {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (min-width: 500px) {
+  /* Layout for screens larger than 500px */
+  .grid {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+}
