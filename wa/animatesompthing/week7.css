@@ -1,0 +1,63 @@
+/* General Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F0E68C; /* Changed to a soft light yellow */
+    font-family: 'Arial', sans-serif; /* Changed font to Arial */
+}
+
+/* Navbar Styling */
+nav {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #4682B4; /* Changed to steel blue */
+}
+
+nav a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(194, 28, 28); /* Changed text color */
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease; /* Added transition for color change */
+}
+
+/* Hover effect for links */
+nav a:hover {
+    color: #d2a1de; /* Gold color on hover */
+}
+
+/* Image Styling */
+img {
+    width: 30vw;
+    height: 30vh;
+    border-radius: 10px; /* Added border radius to the image */
+}
+
+/* Red Ball Animation */
+#moving-ball {
+    background-color: #1f1aba; /* Changed ball color to tomato */
+    width: 50px; /* Increased size */
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    animation: moveBall 5s infinite alternate; /* Animation added */
+}
+
+/* Animation for moving ball */
+@keyframes moveBall {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(200px, 100px);
+    }
+    100% {
+        transform: translate(0, 200px);
+    }
+}
