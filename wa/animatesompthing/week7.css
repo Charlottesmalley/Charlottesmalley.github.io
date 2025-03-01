@@ -5,6 +5,8 @@ body {
     align-items: center;
     background-color: #F0E68C; /* Changed to a soft light yellow */
     font-family: 'Arial', sans-serif; /* Changed font to Arial */
+    margin: 0;
+    overflow: hidden; /* Prevents scrollbars when the ball moves */
 }
 
 /* Navbar Styling */
@@ -37,27 +39,33 @@ img {
     border-radius: 10px; /* Added border radius to the image */
 }
 
-/* Red Ball Animation */
+/* Bouncing Ball Animation */
 #moving-ball {
-    background-color: #1f1aba; /* Changed ball color to tomato */
-    width: 50px; /* Increased size */
+    background-color: #1f1aba; /* Changed ball color to blue */
+    width: 50px; /* Ball size */
     height: 50px;
     border-radius: 50%;
     position: absolute;
     top: 10%;
     left: 10%;
-    animation: moveBall 5s infinite alternate; /* Animation added */
+    animation: bounceBall 4s infinite ease-in-out; /* Animation added */
 }
 
-/* Animation for moving ball */
-@keyframes moveBall {
+/* Animation for bouncing ball */
+@keyframes bounceBall {
     0% {
         transform: translate(0, 0);
     }
+    25% {
+        transform: translate(calc(100vw - 50px), 0); /* Moves ball to the right edge */
+    }
     50% {
-        transform: translate(200px, 100px);
+        transform: translate(calc(100vw - 50px), calc(100vh - 50px)); /* Moves ball to the bottom right corner */
+    }
+    75% {
+        transform: translate(0, calc(100vh - 50px)); /* Moves ball to the bottom left corner */
     }
     100% {
-        transform: translate(0, 200px);
+        transform: translate(0, 0); /* Moves ball back to the top left corner */
     }
 }
