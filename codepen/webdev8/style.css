@@ -1,0 +1,17 @@
+img {
+  --s: 100px; /* corner size */
+  padding: 10px; /* the gap */
+  border: 8px solid #02135b;
+  mask:
+    conic-gradient(at var(--s) var(--s),#0000 75%,#000 0)
+     0 0/calc(100% - var(--s)) calc(100% - var(--s)),
+    conic-gradient(#000 0 0) content-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  background: #E0E4CC;
+}
