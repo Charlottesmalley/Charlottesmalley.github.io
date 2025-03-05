@@ -1,0 +1,120 @@
+/* General Styles */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #333, #77d4db); /* Grayscale gradient */
+    color: #c5c6c7;
+    text-align: center;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Header */
+header {
+    background-color: #1f2833;
+    padding: 1em;
+}
+
+h1 {
+    color: #66fcf1;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    background-color: #45a29e;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #66fcf1;
+}
+
+/* Sections */
+section {
+    background-color: #171c22;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 800px;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Active section turns dark blue when clicked */
+.active {
+    background-color: #0b3d91 !important; /* Dark blue */
+}
+
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
+}
+
+footer{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #0b3d91;
+}
+
+/* Starry Background */
+.stars, .planets {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Ensures stars and planets don't interfere with clicks */
+}
+
+/* Creating multiple static stars */
+.star {
+    position: absolute;
+    background-color: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+/* Planets */
+.planet {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #bbb, #444); /* Grayscale planet */
+}
+
+/* Positioning stars manually */
+.star:nth-child(1) { top: 10%; left: 15%; }
+.star:nth-child(2) { top: 25%; left: 60%; }
+.star:nth-child(3) { top: 50%; left: 80%; }
+.star:nth-child(4) { top: 70%; left: 40%; }
+.star:nth-child(5) { top: 85%; left: 20%; }
+.star:nth-child(6) { top: 90%; left: 75%; }
+
+/* Positioning planets manually */
+.planet:nth-child(1) { top: 30%; left: 10%; width: 50px; height: 50px; }
+.planet:nth-child(2) { top: 60%; left: 50%; width: 70px; height: 70px; }
+.planet:nth-child(3) { top: 80%; left: 85%; width: 40px; height: 40px; }
+
+/* Active section turns dark blue when clicked */
+.active {
+    background-color: #0b3d91 !important;
+}
