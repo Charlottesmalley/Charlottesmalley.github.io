@@ -11,7 +11,7 @@ body {
 
 /* Header */
 header {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-HL4YF6eUcGTvENEtqtqf_9LetZnOCyZEoQ&s');
+    background-image: url("../css/nebula-stars-night-sky-abstract-600nw-2200196869.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,18 +49,18 @@ nav ul li a {
     text-decoration: none;
     padding: 10px 15px;
     color: white;
-    background-color: #45a29e;
+    background-color: #21204a;
     border-radius: 5px;
     transition: background 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: #3a00f7;
+    background-color: #5629ea;
 }
 
 /* Sections */
 section {
-    background-color: #171c22;
+    background-color: #00050a;
     margin: 20px auto;
     padding: 15px;
     border-radius: 8px;
@@ -71,7 +71,7 @@ section {
 
 /* Active section turns dark blue when clicked */
 .active {
-    background-color: #ee0606 !important; /* Dark blue */
+    background-color: #0b0f5b !important; /* Dark blue */
 }
 
 /* Smooth scrolling effect */
