@@ -1,9 +1,9 @@
 /* General Styles */
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #333, #77d4db); /* Grayscale gradient */
+    background: linear-gradient(to bottom, #000000, #1d1b92); /* Grayscale gradient */
     color: #c5c6c7;
     text-align: center;
     transition: background 0.5s ease-in-out;
@@ -11,22 +11,34 @@ body {
 
 /* Header */
 header {
-    background-color: #1f2833;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-HL4YF6eUcGTvENEtqtqf_9LetZnOCyZEoQ&s');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 200px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
     padding: 1em;
 }
 
 h1 {
     color: #66fcf1;
+    stroke-width: 8;
+    -webkit-text-stroke-color: #171c22;
 }
 
 /* Navigation */
 nav ul {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     list-style: none;
-    padding: 0;
+    padding: 10;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 nav ul li {
@@ -43,7 +55,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #66fcf1;
+    background-color: #3a00f7;
 }
 
 /* Sections */
@@ -59,7 +71,7 @@ section {
 
 /* Active section turns dark blue when clicked */
 .active {
-    background-color: #0b3d91 !important; /* Dark blue */
+    background-color: #ee0606 !important; /* Dark blue */
 }
 
 /* Smooth scrolling effect */
@@ -109,10 +121,6 @@ footer{
 .star:nth-child(5) { top: 85%; left: 20%; }
 .star:nth-child(6) { top: 90%; left: 75%; }
 
-/* Positioning planets manually */
-.planet:nth-child(1) { top: 30%; left: 10%; width: 50px; height: 50px; }
-.planet:nth-child(2) { top: 60%; left: 50%; width: 70px; height: 70px; }
-.planet:nth-child(3) { top: 80%; left: 85%; width: 40px; height: 40px; }
 
 /* Active section turns dark blue when clicked */
 .active {
