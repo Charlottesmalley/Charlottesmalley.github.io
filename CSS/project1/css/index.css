@@ -15,11 +15,11 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 200px;
+    height: 160px;
     color: white;
     text-align: center;
     padding: 20px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: fantasy;
     
     padding: 1em;
 }
@@ -30,15 +30,22 @@ h1 {
     -webkit-text-stroke-color: #171c22;
 }
 
+h2 {
+    color: #5629ea;
+    stroke-width: 6;
+
+    font-family: fantasy;
+}
+
 /* Navigation */
 nav ul {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: fantasy;
     list-style: none;
-    padding: 10;
+    padding: 3;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 21px;
 }
 
 nav ul li {
@@ -81,7 +88,7 @@ html {
 
 footer{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #0b3d91;
+    background-color: #000000;
 }
 
 /* Starry Background */
