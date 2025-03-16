@@ -18,10 +18,8 @@ header {
     height: 160px;
     color: white;
     text-align: center;
-    padding: 20px;
-    font-family: fantasy;
-    
     padding: 1em;
+    font-family: fantasy;
 }
 
 h1 {
@@ -33,7 +31,6 @@ h1 {
 h2 {
     color: #5629ea;
     stroke-width: 6;
-
     font-family: fantasy;
 }
 
@@ -86,7 +83,7 @@ html {
     scroll-behavior: smooth;
 }
 
-footer{
+footer {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #000000;
 }
@@ -128,8 +125,37 @@ footer{
 .star:nth-child(5) { top: 85%; left: 20%; }
 .star:nth-child(6) { top: 90%; left: 75%; }
 
-
 /* Active section turns dark blue when clicked */
 .active {
     background-color: #0b3d91 !important;
+}
+
+/* Media Query for iPhone and narrow screens */
+@media (max-width: 480px) {
+    header {
+        height: 250px; /* Increase header height so the background image stretches down */
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    section {
+        width: 90%;
+        padding: 10px;
+    }
+    
+    h1, h2 {
+        font-size: 1.5em;
+    }
+    
+    footer {
+        font-size: 12px;
+    }
 }
