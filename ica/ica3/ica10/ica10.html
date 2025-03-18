@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color the Letters</title>
+    <link rel="stylesheet" href="ica10.css">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            <span class="letter" id="letter-C">C</span>
+            <span class="letter" id="letter-H">H</span>
+            <span class="letter" id="letter-A">A</span>
+            <span class="letter" id="letter-R">R</span>
+            <span class="letter" id="letter-L">L</span>
+            <span class="letter" id="letter-O">O</span>
+            <span class="letter" id="letter-T">T</span>
+            <span class="letter" id="letter-T2">T</span>
+            <span class="letter" id="letter-E">E</span>
+        </h1>
+        
+        <div class="controls">
+            <h2>Color Controls</h2>
+            <p>Click on a letter above to select it then choose a color below to customize.</p>
+            
+            <div class="selected-info">Currently selected: <span id="selected-letter">None</span></div>
+            
+            <div class="color-palette">
+                <div class="color-box" style="background-color: #FF0000;" data-color="#FF0000"></div>
+                <div class="color-box" style="background-color: #FFA500;" data-color="#FFA500"></div>
+                <div class="color-box" style="background-color: #FFFF00;" data-color="#FFFF00"></div>
+                <div class="color-box" style="background-color: #00FF00;" data-color="#00FF00"></div>
+                <div class="color-box" style="background-color: #00FFFF;" data-color="#00FFFF"></div>
+                <div class="color-box" style="background-color: #0000FF;" data-color="#0000FF"></div>
+                <div class="color-box" style="background-color: #800080;" data-color="#800080"></div>
+                <div class="color-box" style="background-color: #FF00FF;" data-color="#FF00FF"></div>
+                <div class="color-box" style="background-color: #000000;" data-color="#000000"></div>
+                
+            </div>
+            
+            <button id="random-colors">Randomize Colors</button>
+        </div>
+    </div>
+    
+    <script src="ica10.js"></script>
+</body>
+</html>

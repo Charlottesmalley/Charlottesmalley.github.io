@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+    margin-bottom: 30px;
+}
+
+.letter {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s, text-shadow 0.2s;
+    padding: 0 3px;
+}
+
+.letter:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.letter.selected {
+    transform: scale(1.2);
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.letter.selected::after {
+    content: "▲";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+}
+
+.controls {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.controls h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.controls p {
+    margin-bottom: 20px;
+    color: #666666;
+}
+
+.selected-info {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.color-palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid #ccc;
+}
+
+.color-box:hover {
+    transform: scale(1.1);
+    border-color: #999;
+}
+
+.color-box.selected {
+    border: 3px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #4a4a4a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+button:active {
+    background-color: #222;
+}
