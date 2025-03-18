@@ -27,6 +27,7 @@ header {
 h1 {
     color: #66fcf1;
     -webkit-text-stroke-color: #66fcf1 ;
+    font-size: larger;
 }
 
 h2 {
