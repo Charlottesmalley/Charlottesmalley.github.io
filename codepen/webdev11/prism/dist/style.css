@@ -1,0 +1,651 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior-x: none;
+  overscroll-behavior-y: none;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: "Geist", sans-serif;
+  font-size: clamp(20px, 5vw, 45px);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  background-color: #555;
+  color: rgb(87, 162, 206);
+  /* pre display用 */
+  background-image:url(../dist/IMG_3389.JPG);
+  background-position: center bottom;
+  background-size: cover;
+}
+
+@property --pos-x {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+@property --pos-y {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+@property --angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+#prism {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  mix-blend-mode: overlay;
+  --size: 0.025;
+  --opacity: 1;
+  /* start value */
+  --pos-x-s: 0vw;
+  --pos-y-s: 0vh;
+  --angle-s: 0deg;
+  /* end value */
+  --pos-x-e: 0vw;
+  --pos-y-e: 0vh;
+  --angle-e: 0deg;
+  --scale: 1;
+  --duration: 2s;
+  --delay: 0s;
+}
+#prism > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(((100vmin + 100vmax) / 2) * var(--size));
+  height: calc(((100vmin + 100vmax) / 2) * var(--size));
+  background-image: linear-gradient(to bottom in oklch decreasing hue, oklch(0.8 0.3 300deg/var(--opacity)) 24%, oklch(0.8 0.2 300deg/var(--opacity)), oklch(0.8 0.2 300deg/var(--opacity)), oklch(0.95 0.2 270deg/var(--opacity)), oklch(0.95 0.2 270deg/var(--opacity)), oklch(0.95 0.2 240deg/var(--opacity)), oklch(0.95 0.2 240deg/var(--opacity)), oklch(0.95 0.1 210deg/var(--opacity)), oklch(0.95 0.1 210deg/var(--opacity)), oklch(0.95 0.1 180deg/var(--opacity)), oklch(0.95 0.1 180deg/var(--opacity)), oklch(0.95 0.1 150deg/var(--opacity)), oklch(0.95 0.1 150deg/var(--opacity)), oklch(0.95 0.1 120deg/var(--opacity)), oklch(0.95 0.1 120deg/var(--opacity)), oklch(0.95 0.2 90deg/var(--opacity)), oklch(0.95 0.2 90deg/var(--opacity)), oklch(0.95 0.2 60deg/var(--opacity)), oklch(0.95 0.2 60deg/var(--opacity)), oklch(0.95 0.2 30deg/var(--opacity)), oklch(0.95 0.2 30deg/var(--opacity)), oklch(0.8 0.2 0deg/var(--opacity)), oklch(0.8 0.2 0deg/var(--opacity)), oklch(0.8 0.2 0deg/var(--opacity)) 78%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-mask-image: radial-gradient(closest-side circle at center, white 30%, transparent);
+          mask-image: radial-gradient(closest-side circle at center, white 30%, transparent);
+  transform: skew(calc(var(--angle) / 2), var(--angle)) rotate(calc(var(--angle) * -2)) translate3d(var(--pos-x), var(--pos-y), 0) scale3d(calc(var(--scale) / 1.8), var(--scale), 1);
+  transform-origin: center top;
+  will-change: transform;
+  -webkit-animation-name: anim;
+          animation-name: anim;
+  -webkit-animation-duration: var(--duration);
+          animation-duration: var(--duration);
+  -webkit-animation-delay: var(--delay);
+          animation-delay: var(--delay);
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  /* お好みで
+      filter: blur(1px);
+  */
+}
+#prism > div:nth-child(1) {
+  --pos-x-s: 23.3vw;
+  --pos-y-s: 67.4vh;
+  --angle-s: 5.4deg;
+  --pos-x-e: 35.7vw;
+  --pos-y-e: 73.8vh;
+  --angle-e: 19.6deg;
+  --scale: 2.11;
+  --duration: 11.3s;
+  --delay: -8.58s;
+  --opacity: 0.49;
+}
+#prism > div:nth-child(2) {
+  --pos-x-s: 69.7vw;
+  --pos-y-s: 92vh;
+  --angle-s: -5.7deg;
+  --pos-x-e: 79.9vw;
+  --pos-y-e: 97.7vh;
+  --angle-e: -9.1deg;
+  --scale: 1.67;
+  --duration: 11.2s;
+  --delay: -0.06s;
+  --opacity: 0.54;
+}
+#prism > div:nth-child(3) {
+  --pos-x-s: 10.8vw;
+  --pos-y-s: 86.5vh;
+  --angle-s: 6.7deg;
+  --pos-x-e: 16.8vw;
+  --pos-y-e: 92.5vh;
+  --angle-e: 28.3deg;
+  --scale: 2.47;
+  --duration: 7.2s;
+  --delay: -9.66s;
+  --opacity: 0.3;
+}
+#prism > div:nth-child(4) {
+  --pos-x-s: 0.2vw;
+  --pos-y-s: 76vh;
+  --angle-s: -9deg;
+  --pos-x-e: 5.5vw;
+  --pos-y-e: 88vh;
+  --angle-e: -22.9deg;
+  --scale: 2.04;
+  --duration: 14.8s;
+  --delay: -17.4s;
+  --opacity: 0.48;
+}
+#prism > div:nth-child(5) {
+  --pos-x-s: 72vw;
+  --pos-y-s: 89.4vh;
+  --angle-s: 6.4deg;
+  --pos-x-e: 83.8vw;
+  --pos-y-e: 95.5vh;
+  --angle-e: 8.7deg;
+  --scale: 2.05;
+  --duration: 10.9s;
+  --delay: -6.21s;
+  --opacity: 0.23;
+}
+#prism > div:nth-child(6) {
+  --pos-x-s: 6.4vw;
+  --pos-y-s: 11vh;
+  --angle-s: -6.1deg;
+  --pos-x-e: 19.1vw;
+  --pos-y-e: 19.8vh;
+  --angle-e: -15.8deg;
+  --scale: 1.43;
+  --duration: 8.7s;
+  --delay: -12.9s;
+  --opacity: 0.45;
+}
+#prism > div:nth-child(7) {
+  --pos-x-s: 13.2vw;
+  --pos-y-s: 15.3vh;
+  --angle-s: 9.6deg;
+  --pos-x-e: 22.4vw;
+  --pos-y-e: 27.1vh;
+  --angle-e: 26.7deg;
+  --scale: 2.45;
+  --duration: 6.2s;
+  --delay: -18.24s;
+  --opacity: 0.26;
+}
+#prism > div:nth-child(8) {
+  --pos-x-s: 39.2vw;
+  --pos-y-s: 64.3vh;
+  --angle-s: -9.1deg;
+  --pos-x-e: 50.3vw;
+  --pos-y-e: 76.8vh;
+  --angle-e: -28.3deg;
+  --scale: 2.43;
+  --duration: 8.1s;
+  --delay: -10.95s;
+  --opacity: 0.57;
+}
+#prism > div:nth-child(9) {
+  --pos-x-s: 92.6vw;
+  --pos-y-s: 73vh;
+  --angle-s: 8.9deg;
+  --pos-x-e: 101vw;
+  --pos-y-e: 80.7vh;
+  --angle-e: 25.6deg;
+  --scale: 1.69;
+  --duration: 14.1s;
+  --delay: -2.67s;
+  --opacity: 0.63;
+}
+#prism > div:nth-child(10) {
+  --pos-x-s: 66.7vw;
+  --pos-y-s: 32.4vh;
+  --angle-s: -9.3deg;
+  --pos-x-e: 74.7vw;
+  --pos-y-e: 40.8vh;
+  --angle-e: -19.4deg;
+  --scale: 1.86;
+  --duration: 13.5s;
+  --delay: -3s;
+  --opacity: 0.47;
+}
+#prism > div:nth-child(11) {
+  --pos-x-s: 85.8vw;
+  --pos-y-s: 50.8vh;
+  --angle-s: 6.7deg;
+  --pos-x-e: 98vw;
+  --pos-y-e: 60.8vh;
+  --angle-e: 24.5deg;
+  --scale: 2.55;
+  --duration: 8.4s;
+  --delay: -18.6s;
+  --opacity: 0.69;
+}
+#prism > div:nth-child(12) {
+  --pos-x-s: 83.3vw;
+  --pos-y-s: 74.3vh;
+  --angle-s: -5.6deg;
+  --pos-x-e: 89vw;
+  --pos-y-e: 84.4vh;
+  --angle-e: -10.3deg;
+  --scale: 1.88;
+  --duration: 12s;
+  --delay: -17.55s;
+  --opacity: 0.53;
+}
+#prism > div:nth-child(13) {
+  --pos-x-s: 58.4vw;
+  --pos-y-s: 46vh;
+  --angle-s: 8.6deg;
+  --pos-x-e: 71vw;
+  --pos-y-e: 55.1vh;
+  --angle-e: 23deg;
+  --scale: 1.08;
+  --duration: 5.5s;
+  --delay: -1.38s;
+  --opacity: 0.3;
+}
+#prism > div:nth-child(14) {
+  --pos-x-s: 79.7vw;
+  --pos-y-s: 70.1vh;
+  --angle-s: -9.4deg;
+  --pos-x-e: 88.9vw;
+  --pos-y-e: 78.2vh;
+  --angle-e: -30.6deg;
+  --scale: 2.18;
+  --duration: 8.7s;
+  --delay: -17.97s;
+  --opacity: 0.46;
+}
+#prism > div:nth-child(15) {
+  --pos-x-s: 40.5vw;
+  --pos-y-s: 14.4vh;
+  --angle-s: 6.8deg;
+  --pos-x-e: 48.4vw;
+  --pos-y-e: 26.2vh;
+  --angle-e: 22.1deg;
+  --scale: 1.07;
+  --duration: 9.9s;
+  --delay: -7.53s;
+  --opacity: 0.64;
+}
+#prism > div:nth-child(16) {
+  --pos-x-s: 26.3vw;
+  --pos-y-s: 86.1vh;
+  --angle-s: -7.7deg;
+  --pos-x-e: 32.8vw;
+  --pos-y-e: 99vh;
+  --angle-e: -12deg;
+  --scale: 2.59;
+  --duration: 14.7s;
+  --delay: -14.79s;
+  --opacity: 0.44;
+}
+#prism > div:nth-child(17) {
+  --pos-x-s: 30.7vw;
+  --pos-y-s: 98.4vh;
+  --angle-s: 8.9deg;
+  --pos-x-e: 40.8vw;
+  --pos-y-e: 106.2vh;
+  --angle-e: 17.9deg;
+  --scale: 2.3;
+  --duration: 11.9s;
+  --delay: -15.93s;
+  --opacity: 0.34;
+}
+#prism > div:nth-child(18) {
+  --pos-x-s: 43.2vw;
+  --pos-y-s: 94.1vh;
+  --angle-s: -9.3deg;
+  --pos-x-e: 52.5vw;
+  --pos-y-e: 102.1vh;
+  --angle-e: -15.1deg;
+  --scale: 1.73;
+  --duration: 6.3s;
+  --delay: -17.91s;
+  --opacity: 0.59;
+}
+#prism > div:nth-child(19) {
+  --pos-x-s: 8.3vw;
+  --pos-y-s: 23vh;
+  --angle-s: 9.6deg;
+  --pos-x-e: 15.7vw;
+  --pos-y-e: 35.8vh;
+  --angle-e: 18.7deg;
+  --scale: 1.35;
+  --duration: 11.9s;
+  --delay: -4.65s;
+  --opacity: 0.61;
+}
+#prism > div:nth-child(20) {
+  --pos-x-s: 16.9vw;
+  --pos-y-s: 54.1vh;
+  --angle-s: -7deg;
+  --pos-x-e: 22.2vw;
+  --pos-y-e: 64.7vh;
+  --angle-e: -12.2deg;
+  --scale: 1.62;
+  --duration: 11.4s;
+  --delay: -10.86s;
+  --opacity: 0.33;
+}
+#prism > div:nth-child(21) {
+  --pos-x-s: 32.1vw;
+  --pos-y-s: 17.3vh;
+  --angle-s: 5.7deg;
+  --pos-x-e: 41.6vw;
+  --pos-y-e: 29.6vh;
+  --angle-e: 25.1deg;
+  --scale: 1.93;
+  --duration: 8.7s;
+  --delay: -19.77s;
+  --opacity: 0.7;
+}
+#prism > div:nth-child(22) {
+  --pos-x-s: 9vw;
+  --pos-y-s: 64.7vh;
+  --angle-s: -9.3deg;
+  --pos-x-e: 20.3vw;
+  --pos-y-e: 71.8vh;
+  --angle-e: -19deg;
+  --scale: 1.61;
+  --duration: 5.5s;
+  --delay: -10.26s;
+  --opacity: 0.27;
+}
+#prism > div:nth-child(23) {
+  --pos-x-s: 86.8vw;
+  --pos-y-s: 44.8vh;
+  --angle-s: 7.2deg;
+  --pos-x-e: 96.9vw;
+  --pos-y-e: 53.6vh;
+  --angle-e: 19.2deg;
+  --scale: 1.56;
+  --duration: 13.9s;
+  --delay: -11.79s;
+  --opacity: 0.63;
+}
+#prism > div:nth-child(24) {
+  --pos-x-s: 91vw;
+  --pos-y-s: 85.4vh;
+  --angle-s: -9.8deg;
+  --pos-x-e: 100.7vw;
+  --pos-y-e: 91.7vh;
+  --angle-e: -14.7deg;
+  --scale: 1.92;
+  --duration: 8.5s;
+  --delay: -8.1s;
+  --opacity: 0.36;
+}
+#prism > div:nth-child(25) {
+  --pos-x-s: 90.3vw;
+  --pos-y-s: 11.1vh;
+  --angle-s: 8.4deg;
+  --pos-x-e: 101.5vw;
+  --pos-y-e: 23.5vh;
+  --angle-e: 19deg;
+  --scale: 1.7;
+  --duration: 8.9s;
+  --delay: -17.64s;
+  --opacity: 0.64;
+}
+#prism > div:nth-child(26) {
+  --pos-x-s: 15.4vw;
+  --pos-y-s: 0.6vh;
+  --angle-s: -8.8deg;
+  --pos-x-e: 22vw;
+  --pos-y-e: 7.9vh;
+  --angle-e: -27.5deg;
+  --scale: 2.35;
+  --duration: 8.1s;
+  --delay: -17.61s;
+  --opacity: 0.66;
+}
+#prism > div:nth-child(27) {
+  --pos-x-s: 79.8vw;
+  --pos-y-s: 7.4vh;
+  --angle-s: 5.6deg;
+  --pos-x-e: 85.5vw;
+  --pos-y-e: 18vh;
+  --angle-e: 10.5deg;
+  --scale: 2.86;
+  --duration: 10.6s;
+  --delay: -13.62s;
+  --opacity: 0.59;
+}
+#prism > div:nth-child(28) {
+  --pos-x-s: 95.9vw;
+  --pos-y-s: 0.8vh;
+  --angle-s: -6deg;
+  --pos-x-e: 103.6vw;
+  --pos-y-e: 13.1vh;
+  --angle-e: -16.8deg;
+  --scale: 1.46;
+  --duration: 12.6s;
+  --delay: -20.64s;
+  --opacity: 0.29;
+}
+#prism > div:nth-child(29) {
+  --pos-x-s: 10.9vw;
+  --pos-y-s: 1.2vh;
+  --angle-s: 8.9deg;
+  --pos-x-e: 22.5vw;
+  --pos-y-e: 11.9vh;
+  --angle-e: 15.3deg;
+  --scale: 1.86;
+  --duration: 7.4s;
+  --delay: -21s;
+  --opacity: 0.62;
+}
+#prism > div:nth-child(30) {
+  --pos-x-s: 4.2vw;
+  --pos-y-s: 55.5vh;
+  --angle-s: -9.3deg;
+  --pos-x-e: 10.3vw;
+  --pos-y-e: 66vh;
+  --angle-e: -19.6deg;
+  --scale: 2.47;
+  --duration: 12.8s;
+  --delay: -10.77s;
+  --opacity: 0.52;
+}
+#prism > div:nth-child(even) {
+  animation-direction: alternate-reverse;
+}
+
+@-webkit-keyframes anim {
+  0% {
+    --pos-x: var(--pos-x-s);
+    --pos-y: var(--pos-y-s);
+    --angle: var(--angle-s);
+  }
+  100% {
+    --pos-x: var(--pos-x-e);
+    --pos-y: var(--pos-y-e);
+    --angle: var(--angle-e);
+  }
+}
+
+@keyframes anim {
+  0% {
+    --pos-x: var(--pos-x-s);
+    --pos-y: var(--pos-y-s);
+    --angle: var(--angle-s);
+  }
+  100% {
+    --pos-x: var(--pos-x-e);
+    --pos-y: var(--pos-y-e);
+    --angle: var(--angle-e);
+  }
+}
+main {
+  position: relative;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+@property --hue {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+h1,
+p {
+  background-image: linear-gradient(60deg in oklch longer hue, oklch(0.9 0.1 360deg), oklch(0.9 0.1 0deg));
+  background-position: 200% 0%;
+  background-repeat: repeat;
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-animation-name: anim-text;
+          animation-name: anim-text;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  animation-direction: reverse;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  will-change: background;
+}
+
+h1 {
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px oklch(0.7 0.2 var(--hue)/0.3);
+  text-stroke: 1px oklch(0.7 0.2 var(--hue)/0.3);
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes anim-text {
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+@keyframes anim-text {
+  100% {
+    background-position: -200% 0%;
+  }
+}
+/*** photo auto slider ***/
+#photos {
+  --photo-delay: 0s;
+  /* 画像枚数 */
+  /* n秒で1サイクル */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+#photos .photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  opacity: 0;
+  background-size: cover;
+  background-position: center center;
+  -webkit-animation: anim-image 30s infinite;
+          animation: anim-image 30s infinite;
+  -webkit-animation-delay: var(--photo-delay);
+          animation-delay: var(--photo-delay);
+  will-change: opacity;
+}
+#photos .photo:nth-child(1) {
+  --photo-delay: 0s;
+}
+#photos .photo:nth-child(2) {
+  --photo-delay: 5s;
+}
+#photos .photo:nth-child(3) {
+  --photo-delay: 10s;
+}
+#photos .photo:nth-child(4) {
+  --photo-delay: 15s;
+}
+#photos .photo:nth-child(5) {
+  --photo-delay: 20s;
+}
+#photos .photo:nth-child(6) {
+  --photo-delay: 25s;
+}
+#photos .photo:nth-of-type(1) {
+  background-image: url("../dist/IMG_3387.JPG");
+  background-position: center bottom;
+}
+#photos .photo:nth-of-type(2) {
+  background-image: url("../dist/IMG_3365.JPG");
+  /*
+      background-position: center top;
+  */
+}
+#photos .photo:nth-of-type(3) {
+  background-image: url("../dist/IMG_3372.JPG");
+}
+#photos .photo:nth-of-type(4) {
+  background-image: url("../dist/IMG_3389.JPG");
+}
+#photos .photo:nth-of-type(5) {
+  background-image: url("../dist/IMG_3373.JPG");
+}
+#photos .photo:nth-of-type(6) {
+  background-image: url("../dist/IMG_3388.JPG");
+}
+#photos .photo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.4) 100%);
+  box-shadow: inset 0 0 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+@-webkit-keyframes anim-image {
+  0%, 30%, 100% {
+    opacity: 0;
+  }
+  /* 非表示 */
+  8%, 22% {
+    opacity: 1;
+  }
+  /* 表示 */
+}
+
+@keyframes anim-image {
+  0%, 30%, 100% {
+    opacity: 0;
+  }
+  /* 非表示 */
+  8%, 22% {
+    opacity: 1;
+  }
+  /* 表示 */
+}
