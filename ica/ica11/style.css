@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+  }
+  
+  button {
+    padding: 10px 16px;
+    font-size: 16px;
+  }
+  
+  .msgBox {
+    position: relative;
+    width: 242px;
+    margin-top: 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .msgBox p {
+    margin: 0;
+    padding-left: 50px;                /* room for a smaller icon */
+    background-position: 10px center;  /* position icon nicely */
+    background-repeat: no-repeat;
+    background-size: 32px 32px;        /* shrink icon to 32x32 pixels */
+    min-height: 40px;
+    line-height: 1.5;
+  }
+  
+  .msgBox button {
+    position: absolute;
+    top: 5px;
+    right: 10px; /* moved x away from text */
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: red; /* red 'x' button */
+  }
+  
+  .msgBox button:hover {
+    transform: scale(1.2);
+  }
