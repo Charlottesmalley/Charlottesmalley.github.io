@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pacific Health and Wellness </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-water"></i>Pacific Health and Wellness
+                </a>
+                <nav>
+                    <ul>
+                        <li><button class="nav-btn" onclick="scrollToSection('amenities')">Gym Amenities</button></li>
+                        <li><button class="nav-btn" onclick="scrollToSection('yoga-pilates')">Yoga & Pilates</button></li>
+                        <li><button class="nav-btn" onclick="scrollToSection('pricing')">Pricing</button></li>
+                        <li><button class="nav-btn" onclick="scrollToSection('contact')">Contact</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+        
+            <h1> Built by Beach, Backed by Fitness</h1>
+            <p>Surfer's Edge Gym offers a modern fitness experience designed for the beach lifestyle. From weight training to yoga, we've got everything you need to stay in prime surfing shape.</p>
+            <button class="cta-btn" onclick="scrollToSection('pricing')">View Membership Options</button>
+        </div>
+    </section>
+
+    <!-- Gym Amenities Section -->
+    <section id="amenities" class="amenities">
+        <div class="container">
+            <h2>Gym Amenities</h2>
+            <p>Our newly renovated facilities focus on what matters most to our community - quality equipment, modern spaces, and amenities that enhance your workout experience.</p>
+            
+            <div class="amenities-container">
+                <div class="amenity-card">
+                    <div class="amenity-img">
+                        <img src="weights.jpeg" alt="Weight Training Area">
+                    </div>
+                    <div class="amenity-content">
+                        <h3>Modern Weight Training</h3>
+                        <p>Our weight training area features state-of-the-art equipment with everything you need for strength training, from free weights to machines.</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-img">
+                        <img src="cardio.jpeg" alt="Cardio Equipment">
+                    </div>
+                    <div class="amenity-content">
+                        <h3>Cardio Zone</h3>
+                        <p>Boost your endurance with our high-quality cardio equipment, perfect for pre-surf warm-ups or standalone cardio sessions.</p>
+                    </div>
+                </div>
+                
+                <div class="amenity-card">
+                    <div class="amenity-img">
+                        <img src="lockerroom.jpeg" alt="Locker Rooms">
+                    </div>
+                    <div class="amenity-content">
+                        <h3>Upgraded Locker Rooms</h3>
+                        <p>Our newly renovated locker rooms provide modern amenities, showers, and storage space for a comfortable post-workout experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Yoga & Pilates Section -->
+    <section id="yoga-pilates" class="yoga-pilates">
+        <div class="container">
+            <h2>Yoga & Pilates</h2>
+            <p>Find your balance both on and off the waves with our specialized yoga and pilates classes designed specifically for surfers and active beach-goers.</p>
+            
+            <div class="classes-container">
+                <div class="class-card">
+                    <div class="class-img">
+                        <img src="yoga.jpeg" alt="Surfer's Yoga">
+                    </div>
+                    <div class="class-content">
+                        <h3>Surfer's Yoga</h3>
+                        <p>Our specialized yoga classes focus on improving balance, flexibility, and core strength - essential skills for surfers of all levels.</p>
+                        <p><strong>Schedule:</strong> Monday, Wednesday, Friday @ 7AM & 6PM</p>
+                    </div>
+                </div>
+                
+                <div class="class-card">
+                    <div class="class-img">
+                        <img src="pilates.jpeg" alt="Core Pilates">
+                    </div>
+                    <div class="class-content">
+                        <h3>Core Pilates</h3>
+                        <p>Strengthen your core and improve your stability with pilates classes designed to enhance your performance on the waves.</p>
+                        <p><strong>Schedule:</strong> Tuesday, Thursday @ 8AM & 5PM, Saturday @ 9AM</p>
+                    </div>
+                </div>
+                
+                <div class="class-card">
+                    <div class="class-img">
+                        <img src="help.jpeg" alt="Recovery Sessions">
+                    </div>
+                    <div class="class-content">
+                        <h3>Recovery Sessions</h3>
+                        <p>Gentle stretching and meditation sessions perfect for recovery days or after a long day on the waves.</p>
+                        <p><strong>Schedule:</strong> Sunday @ 10AM & 4PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Affordable Membership Options</h2>
+            <p>We've tailored our pricing to be accessible for everyone, with special rates for surfers and hotel guests.</p>
+            
+            <div class="pricing-container">
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3>Surfer's Pass</h3>
+                    <div class="price">$49<span>/month</span></div>
+                    <p>Perfect for local surfers who want regular access to keep in prime shape.</p>
+                    <ul>
+                        <li>✓ Full gym access</li>
+                        <li>✓ 4 yoga/pilates classes per month</li>
+                        <li>✓ Locker access</li>
+                        <li>✓ Member discounts on retail</li>
+                        <li>✓ No commitment option available</li>
+                    </ul>
+                    <button class="cta-btn">Sign Up Now</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Standard Membership</h3>
+                    <div class="price">$69<span>/month</span></div>
+                    <p>Our standard membership for regular gym-goers.</p>
+                    <ul>
+                        <li>✓ Full gym access</li>
+                        <li>✓ 8 yoga/pilates classes per month</li>
+                        <li>✓ Locker access</li>
+                        <li>✓ Member discounts on retail</li>
+                        <li>✓ Fitness assessment</li>
+                    </ul>
+                    <button class="cta-btn">Join Today</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Hotel Guest Pass</h3>
+                    <div class="price">$15<span>/day</span></div>
+                    <p>Special rates for visitors staying at partner hotels.</p>
+                    <ul>
+                        <li>✓ Daily full gym access</li>
+                        <li>✓ One yoga/pilates class</li>
+                        <li>✓ Locker access</li>
+                        <li>✓ Towel service</li>
+                        <li>✓ Valid hotel key card required</li>
+                    </ul>
+                    <button class="cta-btn">Get Pass</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Have questions? Want to learn more about our facilities or membership options? Contact us!</p>
+            
+            <div class="form-container">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Surfer's Edge Gym</h3>
+                    <p>123 Beach Avenue<br>Ocean City, CA 94000</p>
+                    <p>Phone: (555) 123-4567<br>Email: info@surfersedgegym.com</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 5AM - 10PM</li>
+                        <li>Saturday: 6AM - 8PM</li>
+                        <li>Sunday: 7AM - 6PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#amenities">Gym Amenities</a></li>
+                        <li><a href="#yoga-pilates">Yoga & Pilates</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Surfer's Edge Gym. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
