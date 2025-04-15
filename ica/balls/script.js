@@ -21,6 +21,7 @@ class Ball {
     this.velY = velY;
     this.color = color;
     this.size = size;
+    this.mass = size; // Mass proportional to size for physics calculations
   }
 
   draw() {
@@ -59,7 +60,45 @@ class Ball {
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
-          ball.color = this.color = randomRGB();
+          // Collision detected - implement realistic bouncing physics
+          
+          // Calculate unit normal vector (direction of collision)
+          const nx = dx / distance;
+          const ny = dy / distance;
+          
+          // Calculate relative velocity
+          const vx = this.velX - ball.velX;
+          const vy = this.velY - ball.velY;
+          
+          // Calculate velocity along the normal direction (dot product)
+          const velocityAlongNormal = vx * nx + vy * ny;
+          
+          // No need to process if objects are moving away from each other
+          if (velocityAlongNormal > 0) return;
+          
+          // Calculate restitution (bounciness factor)
+          const restitution = 0.9;
+          
+          // Calculate impulse scalar
+          const impulseScalar = -(1 + restitution) * velocityAlongNormal / 
+                               (1/this.mass + 1/ball.mass);
+          
+          // Apply impulse to velocities
+          const impulseX = impulseScalar * nx;
+          const impulseY = impulseScalar * ny;
+          
+          // Update velocities based on mass
+          this.velX += impulseX / this.mass;
+          this.velY += impulseY / this.mass;
+          ball.velX -= impulseX / ball.mass;
+          ball.velY -= impulseY / ball.mass;
+          
+          // Prevent balls from sticking together by slightly separating them
+          const overlap = (this.size + ball.size - distance) / 2;
+          this.x += overlap * nx;
+          this.y += overlap * ny;
+          ball.x -= overlap * nx;
+          ball.y -= overlap * ny;
         }
       }
     }
