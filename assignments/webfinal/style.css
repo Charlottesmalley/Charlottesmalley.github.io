@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #222;
+    font-family: Arial, sans-serif;
+}
+
+#topBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-bottom: 2px solid #555;
+}
+
+#numberDisplay {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    border-bottom: 2px solid #555;
+}
+
+.ball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.top-ball {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 5px;
+    transition: transform 0.2s;
+}
+
+.top-ball:hover {
+    transform: scale(1.1);
+}
+
+.phone-dash {
+    font-size: 24px;
+    color: white;
+    margin: 0 5px 0 0;
+    align-self: center;
+    font-weight: bold;
+}
