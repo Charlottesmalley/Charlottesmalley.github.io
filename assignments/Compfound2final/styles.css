@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #070000;
     margin-bottom: 20px;
 }
 
@@ -43,7 +43,7 @@ h1 {
 
 .card {
     height: 110px;
-    background-color: #6c63ff;
+    background-color: #f6adf2;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -183,7 +183,7 @@ h1 {
 }
 
 button {
-    background-color: #6c63ff;
+    background-color: #dd8fcc;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -194,11 +194,11 @@ button {
 }
 
 button:hover {
-    background-color: #5a52e0;
+    background-color: #d841c2;
 }
 
 .win-message {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -206,13 +206,12 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     display: none;
 }
 
 .win-message h2 {
     margin-bottom: 10px;
-    color: #333;
+    color: #090000;
 }
 
 .win-message p {
