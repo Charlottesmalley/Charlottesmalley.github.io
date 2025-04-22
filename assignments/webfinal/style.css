@@ -5,32 +5,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
-#topBar {
+#numberDisplay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100px;
-    background-color: #333;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    border-bottom: 2px solid #555;
-}
-
-#numberDisplay {
-    position: absolute;
-    top: 100px;
-    left: 0;
-    width: 100%;
     height: 60px;
-    background-color: #444;
+    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 24px;
-    border-bottom: 2px solid #555;
+    border-bottom: 2px solid #f8f5f5;
 }
 
 .ball {
@@ -38,7 +26,6 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,30 +36,14 @@ body {
     user-select: none;
 }
 
-.top-ball {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    margin-right: 5px;
-    transition: transform 0.2s;
-}
-
-.top-ball:hover {
-    transform: scale(1.1);
-}
-
-.phone-dash {
-    font-size: 24px;
-    color: white;
-    margin: 0 5px 0 0;
-    align-self: center;
-    font-weight: bold;
-}
+/* Different colors for each number */
+.ball[data-number="0"] { background-color: gray; }
+.ball[data-number="1"] { background-color: red; }
+.ball[data-number="2"] { background-color: orange; }
+.ball[data-number="3"] { background-color: yellow; color: black; }
+.ball[data-number="4"] { background-color: green; }
+.ball[data-number="5"] { background-color: blue; }
+.ball[data-number="6"] { background-color: purple; }
+.ball[data-number="7"] { background-color: pink; color: black; }
+.ball[data-number="8"] { background-color: brown; }
+.ball[data-number="9"] { background-color: black; }
