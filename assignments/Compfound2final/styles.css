@@ -30,7 +30,6 @@ h1 {
     background-color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .game-grid {
@@ -50,7 +49,7 @@ h1 {
     align-items: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
     transform-style: preserve-3d;
 }
 
@@ -199,6 +198,7 @@ button:hover {
 
 .win-message {
     background-color: rgba(255, 255, 255);
+    font-family: 'Times New Roman', Times, serif;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -210,11 +210,13 @@ button:hover {
 }
 
 .win-message h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-bottom: 10px;
     color: #090000;
 }
 
 .win-message p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-bottom: 20px;
-    color: #666;
+    color: #ffffff;
 }
