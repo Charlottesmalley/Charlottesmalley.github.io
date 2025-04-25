@@ -1,4 +1,5 @@
 const selectedNumbersDisplay = document.getElementById('selectedNumbers');
+const clearButton = document.getElementById('clearButton');
 let selectedNumbers = [];
 const balls = [];
 const canvas = {
@@ -91,6 +92,31 @@ function updateSelectedNumbersDisplay() {
     selectedNumbersDisplay.textContent = formattedNumber;
 }
 
+// Function to clear the phone number
+function clearPhoneNumber() {
+    selectedNumbers = [];
+    updateSelectedNumbersDisplay();
+    
+    // Recreate balls for numbers that were selected
+    // Get the current count of each number
+    const currentCounts = {};
+    for (let i = 0; i <= 9; i++) {
+        currentCounts[i] = 0;
+    }
+    
+    for (const ball of balls) {
+        currentCounts[ball.number]++;
+    }
+    
+    // Create the missing balls to restore the original count
+    for (let num = 0; num <= 9; num++) {
+        const missingCount = 10 - currentCounts[num];
+        for (let i = 0; i < missingCount; i++) {
+            createBall(num);
+        }
+    }
+}
+
 function distance(ball1, ball2) {
     const dx = ball1.x - ball2.x;
     const dy = ball1.y - ball2.y;
@@ -155,6 +181,15 @@ function resolveCollision(ball1, ball2) {
     }
 }
 
+// Function to reset velocity of all balls
+function resetVelocity() {
+    for (const ball of balls) {
+        // Generate new random velocities
+        ball.vx = (Math.random() - 0.5) * 7;
+        ball.vy = (Math.random() - 0.5) * 7;
+    }
+}
+
 function update() {
     // Update positions
     for (const ball of balls) {
@@ -194,6 +229,17 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
+
+// Add spacebar event listener
+document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+        resetVelocity();
+        event.preventDefault(); // Prevent space from scrolling the page
+    }
+});
+
+// Add clear button event listener
+clearButton.addEventListener('click', clearPhoneNumber);
 
 // Start animation
 update();

@@ -1,24 +1,61 @@
 body {
     margin: 0;
+    padding: 0;
     overflow: hidden;
-    background-color: #222;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: white;
 }
 
 #numberDisplay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
     background-color: #000000;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+    height: 80px; /* Thicker header */
+}
+
+.header-content {
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: white;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.phone-label {
     font-size: 24px;
-    border-bottom: 2px solid #f8f5f5;
+    font-weight: bold;
+}
+
+#selectedNumbers {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+}
+
+#clearButton {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    position: absolute;
+    right: 20px;
+}
+
+#clearButton:hover {
+    background-color: #555;
 }
 
 .ball {
@@ -31,19 +68,24 @@ body {
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 18px;
     cursor: pointer;
     user-select: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.1s;
 }
 
-/* Different colors for each number */
-.ball[data-number="0"] { background-color: gray; }
-.ball[data-number="1"] { background-color: red; }
-.ball[data-number="2"] { background-color: orange; }
-.ball[data-number="3"] { background-color: yellow; color: black; }
-.ball[data-number="4"] { background-color: green; }
-.ball[data-number="5"] { background-color: blue; }
-.ball[data-number="6"] { background-color: purple; }
-.ball[data-number="7"] { background-color: pink; color: black; }
-.ball[data-number="8"] { background-color: brown; }
-.ball[data-number="9"] { background-color: black; }
+.ball:hover {
+    transform: scale(1.1);
+}
+
+/* Color each ball based on its number */
+.ball[data-number="0"] { background-color: #777; }
+.ball[data-number="1"] { background-color: #f44336; }
+.ball[data-number="2"] { background-color: #FF9800; }
+.ball[data-number="3"] { background-color: #FFEB3B; }
+.ball[data-number="4"] { background-color: #4CAF50; }
+.ball[data-number="5"] { background-color: #2196F3; }
+.ball[data-number="6"] { background-color: #9C27B0; }
+.ball[data-number="7"] { background-color: #ffcdd2; }
+.ball[data-number="8"] { background-color: #d32f2f; }
+.ball[data-number="9"] { background-color: #4db6ac; }
