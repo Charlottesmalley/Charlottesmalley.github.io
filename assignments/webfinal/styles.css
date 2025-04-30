@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #000000;
     color: white;
 }
@@ -18,7 +18,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     border-bottom: 1px solid #333;
-    height: 80px; /* Thicker header */
+    height: 80px;
 }
 
 .header-content {
@@ -30,8 +30,18 @@ body {
 }
 
 .phone-label {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+}
+
+.button-group {
+    position: absolute;
+    right: 20px;
+    display: flex;
+}
+
+.button-group button {
+    margin-left: 10px;
 }
 
 #selectedNumbers {
@@ -41,25 +51,30 @@ body {
     color: white;
 }
 
-#clearButton {
-    background-color: #333;
+#clearButton, #submitButton {
+    background-color: red;
     color: white;
     border: none;
     padding: 5px 12px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
     font-size: 14px;
-    position: absolute;
-    right: 20px;
+}
+
+#submitButton {
+    background-color: #2196F3;
 }
 
 #clearButton:hover {
-    background-color: #555;
+    background-color: orange;
+}
+
+#submitButton:hover {
+    background-color:lightblue;
 }
 
 .spacebar-note {
-    color: #aaa;
+    color: #ffffff;
     font-size: 12px;
     position: absolute;
     right: 20px;
@@ -68,8 +83,8 @@ body {
 
 .ball {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -79,14 +94,12 @@ body {
     cursor: pointer;
     user-select: none;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.1s;
 }
 
 .ball:hover {
     transform: scale(1.1);
 }
 
-/* Color each ball based on its number */
 .ball[data-number="0"] { background-color: #777; }
 .ball[data-number="1"] { background-color: #f44336; }
 .ball[data-number="2"] { background-color: #FF9800; }
@@ -97,3 +110,44 @@ body {
 .ball[data-number="7"] { background-color: #ffcdd2; }
 .ball[data-number="8"] { background-color: #d32f2f; }
 .ball[data-number="9"] { background-color: #4db6ac; }
+
+.message-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.message-content {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 5px;
+    text-align: center;
+    color: #333;
+    max-width: 300px;
+}
+
+.message-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#closeMessage {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none !important;
+}

@@ -1,5 +1,10 @@
+
 const selectedNumbersDisplay = document.getElementById('selectedNumbers');
 const clearButton = document.getElementById('clearButton');
+const submitButton = document.getElementById('submitButton');
+const messageBox = document.getElementById('messageBox');
+const closeMessage = document.getElementById('closeMessage');
+
 let selectedNumbers = [];
 const balls = [];
 const canvas = {
@@ -8,13 +13,14 @@ const canvas = {
 };
 
 // Constants for ball physics
-const BALL_RADIUS = 20;
+const BALL_RADIUS = 35;
 const BALL_DIAMETER = BALL_RADIUS * 2;
 const COLLISION_DAMPING = 0.8;
+const VELOCITY_MULTIPLIER = 2.0; // Increased velocity
 
-// Create 10 balls for each number (0-9)
+// Create 5 balls for each number 
 for (let num = 0; num <= 9; num++) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         createBall(num);
     }
 }
@@ -29,9 +35,9 @@ function createBall(number) {
     const x = Math.random() * (canvas.width - BALL_DIAMETER);
     const y = Math.random() * (canvas.height - BALL_DIAMETER - 60) + 60;
     
-    // Random velocity
-    const vx = (Math.random() - 0.5) * 7;
-    const vy = (Math.random() - 0.5) * 7;
+    // Random velocity - increased speed
+    const vx = (Math.random() - 0.5) * 14 * VELOCITY_MULTIPLIER; 
+    const vy = (Math.random() - 0.5) * 14 * VELOCITY_MULTIPLIER; 
     
     const ballData = {
         element: ball,
@@ -92,6 +98,18 @@ function updateSelectedNumbersDisplay() {
     selectedNumbersDisplay.textContent = formattedNumber;
 }
 
+// Function to submit the phone number
+function submitPhoneNumber() {
+    if (selectedNumbers.length > 0) {
+        messageBox.classList.remove('hidden');
+    }
+}
+
+// Function to close the message box
+function closeMessageBox() {
+    messageBox.classList.add('hidden');
+}
+
 // Function to clear the phone number
 function clearPhoneNumber() {
     selectedNumbers = [];
@@ -110,7 +128,7 @@ function clearPhoneNumber() {
     
     // Create the missing balls to restore the original count
     for (let num = 0; num <= 9; num++) {
-        const missingCount = 10 - currentCounts[num];
+        const missingCount = 5 - currentCounts[num]; // Changed from 10 to 5
         for (let i = 0; i < missingCount; i++) {
             createBall(num);
         }
@@ -184,9 +202,9 @@ function resolveCollision(ball1, ball2) {
 // Function to reset velocity of all balls
 function resetVelocity() {
     for (const ball of balls) {
-        // Generate new random velocities
-        ball.vx = (Math.random() - 0.5) * 7;
-        ball.vy = (Math.random() - 0.5) * 7;
+        // Generate new random velocities with higher speed
+        ball.vx = (Math.random() - 0.5) * 20 * VELOCITY_MULTIPLIER;
+        ball.vy = (Math.random() - 0.5) * 20 * VELOCITY_MULTIPLIER;
     }
 }
 
@@ -238,8 +256,10 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Add clear button event listener
+// Add button event listeners
 clearButton.addEventListener('click', clearPhoneNumber);
+submitButton.addEventListener('click', submitPhoneNumber);
+closeMessage.addEventListener('click', closeMessageBox);
 
 // Start animation
 update();

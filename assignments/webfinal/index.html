@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bouncing Numbered Balls</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="numberDisplay">
         <div class="header-content">
             <div class="phone-label">Phone Number:</div>
-            <button id="clearButton">Clear</button>
+            <div class="button-group">
+                <button id="submitButton">Submit</button>
+                <button id="clearButton">Clear</button>
+            </div>
         </div>
         <div id="selectedNumbers">None</div>
         <div class="spacebar-note">Press space bar to shuffle balls</div>
+    </div>
+    
+    <div id="messageBox" class="message-box hidden">
+        <div class="message-content">
+            <p>Good job. Your number is being dialed.</p>
+            <button id="closeMessage">OK</button>
+        </div>
     </div>
     
     <script src="script.js"></script>
