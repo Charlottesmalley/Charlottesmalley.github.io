@@ -7,7 +7,7 @@ let timerInterval;
 let flippedCards = [];
 let lockBoard = false;
 
-// Card data - pairs of shapes and colors
+// Card data pairs of shapes and colors
 const cardTypes = [
     { shape: 'square', color: 'red' },
     { shape: 'square', color: 'blue' },
@@ -38,14 +38,14 @@ function initGame() {
     
     // Create two of each card type for matching
     cardTypes.forEach(cardType => {
-        // First card of the pair
+        
         cards.push({
             shape: cardType.shape,
             color: cardType.color,
             id: `${cardType.shape}-${cardType.color}-1`
         });
         
-        // Second card of the pair
+        
         cards.push({
             shape: cardType.shape,
             color: cardType.color,
@@ -53,10 +53,9 @@ function initGame() {
         });
     });
     
-    // Shuffle cards using Fisher-Yates algorithm
+  
     cards = shuffleArray(cards);
     
-    // Create card elements
     cards.forEach((card, index) => {
         const cardElement = document.createElement('div');
         cardElement.className = 'card';
@@ -64,11 +63,11 @@ function initGame() {
         cardElement.dataset.shape = card.shape;
         cardElement.dataset.color = card.color;
         
-        // Create card back (question mark)
+        // card back 
         const cardBack = document.createElement('div');
         cardBack.className = 'card-back';
         
-        // Create card front (shape)
+        // Create frount 
         const cardContent = document.createElement('div');
         cardContent.className = 'card-content';
         
@@ -97,13 +96,13 @@ function initGame() {
         timerInterval = null;
     }
     
-    // Update display
+    // Update 
     updateStats();
 }
 
-// Fisher-Yates shuffle algorithm
+
 function shuffleArray(array) {
-    const newArray = [...array]; // Create a copy to avoid modifying the original
+    const newArray = [...array]; 
     for (let i = newArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
@@ -113,7 +112,7 @@ function shuffleArray(array) {
 
 // Card flip handler
 function flipCard() {
-    // Prevent flipping if board is locked or card is already flipped/matched
+   
     if (lockBoard) return;
     if (this.classList.contains('flipped') || this.classList.contains('matched')) return;
     
@@ -139,11 +138,11 @@ function flipCard() {
         const secondCardShape = this.dataset.shape;
         const secondCardColor = this.dataset.color;
         
-        // Check if cards match (same shape and color, but not the same card)
+        // Check if cards match 
         if (firstCardShape === secondCardShape && 
             firstCardColor === secondCardColor && 
             flippedCards[0].dataset.cardId !== this.dataset.cardId) {
-            // Match!
+            
             matches++;
             updateStats();
             
@@ -155,7 +154,7 @@ function flipCard() {
             flippedCards[0].removeEventListener('click', flipCard);
             this.removeEventListener('click', flipCard);
             
-            // Reset flipped cards array
+          
             flippedCards = [];
             
             // Check if game is won
@@ -163,10 +162,10 @@ function flipCard() {
                 endGame();
             }
         } else {
-            // No match
+        
             lockBoard = true;
             
-            // Flip back after a short delay
+            // Flip back
             setTimeout(() => {
                 flippedCards[0].classList.remove('flipped');
                 this.classList.remove('flipped');
@@ -177,7 +176,7 @@ function flipCard() {
     }
 }
 
-// Update game stats display
+
 function updateStats() {
     document.getElementById('moves').textContent = moves;
     document.getElementById('matches').textContent = matches;
@@ -196,7 +195,6 @@ function startTimer() {
 function endGame() {
     clearInterval(timerInterval);
     
-    // Update win message
     document.getElementById('final-moves').textContent = moves;
     document.getElementById('final-time').textContent = gameTime;
     
