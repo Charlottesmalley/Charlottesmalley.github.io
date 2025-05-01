@@ -12,13 +12,13 @@ const canvas = {
     height: window.innerHeight
 };
 
-// Constants for ball physics
+// ball physics
 const BALL_RADIUS = 35;
 const BALL_DIAMETER = BALL_RADIUS * 2;
 const COLLISION_DAMPING = 0.8;
 const VELOCITY_MULTIPLIER = 2.0; // Increased velocity
 
-// Create 5 balls for each number 
+// number of balls
 for (let num = 0; num <= 9; num++) {
     for (let i = 0; i < 5; i++) {
         createBall(num);
@@ -31,11 +31,11 @@ function createBall(number) {
     ball.setAttribute('data-number', number);
     ball.textContent = number;
     
-    // Random position (avoiding top area)
+    // Random position for balls 
     const x = Math.random() * (canvas.width - BALL_DIAMETER);
     const y = Math.random() * (canvas.height - BALL_DIAMETER - 60) + 60;
     
-    // Random velocity - increased speed
+    // speed of balls 
     const vx = (Math.random() - 0.5) * 14 * VELOCITY_MULTIPLIER; 
     const vy = (Math.random() - 0.5) * 14 * VELOCITY_MULTIPLIER; 
     
@@ -69,10 +69,10 @@ function selectNumber(ballData) {
     
     selectedNumbers.push(ballData.number);
     
-    // Add dashes after 3rd and 6th digits
+    // Add dashes to phone number 
     updateSelectedNumbersDisplay();
     
-    // Remove the ball
+
     ballData.element.remove();
     const index = balls.indexOf(ballData);
     if (index > -1) {
@@ -86,7 +86,7 @@ function updateSelectedNumbersDisplay() {
         return;
     }
     
-    // Format as phone number with dashes
+   
     let formattedNumber = "";
     for (let i = 0; i < selectedNumbers.length; i++) {
         formattedNumber += selectedNumbers[i];
@@ -98,25 +98,25 @@ function updateSelectedNumbersDisplay() {
     selectedNumbersDisplay.textContent = formattedNumber;
 }
 
-// Function to submit the phone number
+// submit the phone number
 function submitPhoneNumber() {
     if (selectedNumbers.length > 0) {
         messageBox.classList.remove('hidden');
     }
 }
 
-// Function to close the message box
+// close the message box
 function closeMessageBox() {
     messageBox.classList.add('hidden');
 }
 
-// Function to clear the phone number
+// clear the phone number
 function clearPhoneNumber() {
     selectedNumbers = [];
     updateSelectedNumbersDisplay();
     
-    // Recreate balls for numbers that were selected
-    // Get the current count of each number
+    // Re make balls for numbers that were selected
+
     const currentCounts = {};
     for (let i = 0; i <= 9; i++) {
         currentCounts[i] = 0;
@@ -125,8 +125,7 @@ function clearPhoneNumber() {
     for (const ball of balls) {
         currentCounts[ball.number]++;
     }
-    
-    // Create the missing balls to restore the original count
+  
     for (let num = 0; num <= 9; num++) {
         const missingCount = 5 - currentCounts[num]; // Changed from 10 to 5
         for (let i = 0; i < missingCount; i++) {
@@ -147,29 +146,26 @@ function checkCollision(ball1, ball2) {
 }
 
 function resolveCollision(ball1, ball2) {
-    // Get the direction of the collision
+    // collision of balls 
     const dx = ball2.x - ball1.x;
     const dy = ball2.y - ball1.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
     
-    // Normal vector
+  
     const nx = dx / dist;
     const ny = dy / dist;
     
-    // Relative velocity
+  
     const relVelX = ball2.vx - ball1.vx;
     const relVelY = ball2.vy - ball1.vy;
     
-    // Relative velocity in the normal direction
     const relVelNormal = relVelX * nx + relVelY * ny;
-    
-    // Do nothing if balls are moving away from each other
     if (relVelNormal > 0) return;
     
-    // Impulse scalar
+   
     const impulse = 2 * relVelNormal / 2;
     
-    // Apply impulse
+    //bump 
     ball1.vx += impulse * nx * COLLISION_DAMPING;
     ball1.vy += impulse * ny * COLLISION_DAMPING;
     ball2.vx -= impulse * nx * COLLISION_DAMPING;
@@ -180,13 +176,12 @@ function resolveCollision(ball1, ball2) {
     ball1.number = ball2.number;
     ball2.number = tempNumber;
     
-    // Update appearance
     ball1.element.textContent = ball1.number;
     ball2.element.textContent = ball2.number;
     ball1.element.setAttribute('data-number', ball1.number);
     ball2.element.setAttribute('data-number', ball2.number);
     
-    // Move balls apart slightly to prevent sticking
+    // Move balls 
     const overlap = ball1.radius + ball2.radius - dist;
     if (overlap > 0) {
         const moveX = (overlap / 2) * nx;
@@ -199,17 +194,17 @@ function resolveCollision(ball1, ball2) {
     }
 }
 
-// Function to reset velocity of all balls
+// Function to reset velocity of all balls with soace bar 
 function resetVelocity() {
     for (const ball of balls) {
-        // Generate new random velocities with higher speed
+        
         ball.vx = (Math.random() - 0.5) * 20 * VELOCITY_MULTIPLIER;
         ball.vy = (Math.random() - 0.5) * 20 * VELOCITY_MULTIPLIER;
     }
 }
 
 function update() {
-    // Update positions
+   
     for (const ball of balls) {
         ball.x += ball.vx;
         ball.y += ball.vy;
@@ -225,12 +220,12 @@ function update() {
             ball.y = Math.max(60, Math.min(ball.y, canvas.height - BALL_DIAMETER));
         }
         
-        // Update DOM element
+       
         ball.element.style.left = ball.x + 'px';
         ball.element.style.top = ball.y + 'px';
     }
     
-    // Check collisions
+    // look for collisions
     for (let i = 0; i < balls.length; i++) {
         for (let j = i + 1; j < balls.length; j++) {
             if (checkCollision(balls[i], balls[j])) {
@@ -242,24 +237,24 @@ function update() {
     requestAnimationFrame(update);
 }
 
-// Handle window resize
+//window resize
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
 
-// Add spacebar event listener
+// Add spacebar function 
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
         resetVelocity();
-        event.preventDefault(); // Prevent space from scrolling the page
+        event.preventDefault(); 
     }
 });
 
-// Add button event listeners
+// Add button listeners 
 clearButton.addEventListener('click', clearPhoneNumber);
 submitButton.addEventListener('click', submitPhoneNumber);
 closeMessage.addEventListener('click', closeMessageBox);
 
-// Start animation
+
 update();
